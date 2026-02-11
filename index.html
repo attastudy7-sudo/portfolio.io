@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twum Kwabena - Full Stack Developer & Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Navigation Overlay for Mobile -->
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+
+<div id="header">
+    <nav>
+        <p class="logo">T<span>K</span></p>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu" class="nav-menu">
+          <li><a href="#header" onclick="closeNav()">Home</a></li>
+          <li><a href="#about" onclick="closeNav()">About</a></li>
+          <li><a href="#services" onclick="closeNav()">Services</a></li>
+          <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
+          <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hero-container">
+        <div class="header-text">
+            <div class="badge">Available for Freelance</div>
+            <h1 class="hero-title">
+                Hi, I'm <span class="gradient-text">Twum Kwabena</span>
+            </h1>
+            <p class="hero-subtitle">Full Stack Developer & Designer from Ghana</p>
+            <div class="typing-wrapper">
+                <p class="typing-text">I create <span></span></p>
+            </div>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-ring"></div>
+            <img src="./Images/M3.png" alt="Twum Kwabena">
+        </div>    
+    </div>
+</div>
+
+<!-- -----About--------- -->
+<div id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Get to know me</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="row">
+            <div class="about-col-1">
+                <div class="about-image-wrapper">
+                    <img src="Images/profile-pic.png" alt="Twum Kwabena">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+            <div class="about-col-2">
+                <p class="about-description">As a highly skilled and experienced computer programmer, 
+                    I am passionate about writing code and developing 
+                    high-quality software that meets the needs of my clients.
+                    My strong background in computer science, coupled with my commitment to using the best
+                    programming practices and tools available, makes 
+                    me a valuable asset to any software development team.</p>
+                    
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                
+                <div class="tab-contents active-tab" id="skills">
+                    <div class="tab-item">
+                        <h4>Web Design</h4>
+                        <p>Expert at using tools such as Webflow and WordPress to design websites that attract potential clients</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>Web Development (Custom)</h4>
+                        <p>Using HTML, CSS, JS, React, and Python to create personalized websites that stand out</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>Mobile Development</h4>
+                        <p>Creating apps for multiple platforms using Flutter for Android and Swift for iOS</p>
+                    </div>
+                </div>
+                
+                <div class="tab-contents" id="experience">
+                    <div class="tab-item">
+                        <h4>2023 - Present</h4>
+                        <p>Fiverr Freelancer</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>2023 - Present</h4>
+                        <p>Freelance Mobile Developer</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>2024 - Present</h4>
+                        <p>Freelancer on Upwork</p>
+                    </div>
+                </div>
+                
+                <div class="tab-contents" id="education">
+                    <div class="tab-item">
+                        <h4>Senior High School</h4>
+                        <p>St. Peter's Boys Snr. High</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>Kwame Nkrumah University of Science and Technology</h4>
+                        <p>BSc. Computer Science</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------Services------------------>
+<div id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">What I Do</span>
+            <h2 class="section-title">My Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="Images/code.png" alt="Web Design">
+                </div>
+                <h3>Web Design</h3>
+                <p>I focus on planning user experiences, wireframing layouts, and organizing content that tells compelling stories while designing beautiful final UIs.</p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="Images/python.png" alt="Python Development">
+                </div>
+                <h3>Python Developer</h3>
+                <p>Designing, developing, testing, and maintaining scripts and applications using programming principles to create solutions that meet client requirements.</p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="Images/js-react.png" alt="JavaScript & React">
+                </div>
+                <h3>JavaScript & React</h3>
+                <p>Creating stunning front-end designs that attract clients and effectively deliver your company's message through modern web technologies.</p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------Portfolio----------->
+<div id="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Recent Projects</span>
+            <h2 class="section-title">My Work</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/BUILD A FULL STACK WEBSITE.jpeg" alt="Full Stack Website">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Full Stack Website Development</h3>
+                            <p>Complete web solutions from frontend to backend</p>
+                            <a href="https://www.fiverr.com/s/7YbppP4" class="portfolio-btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/WEB SCRAPING .jpeg" alt="Web Scraping">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Web Scraping Solutions</h3>
+                            <p>Automated data extraction and processing</p>
+                            <a href="#contact" class="portfolio-btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/WEB DESIGN.jpeg" alt="Web Design">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Modern Web Design</h3>
+                            <p>Beautiful and responsive user interfaces</p>
+                            <a href="https://www.fiverr.com/s/dDxkxWa" class="portfolio-btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-cta">
+            <a href="https://www.fiverr.com/s/bdArk6q" class="btn-primary">See All Projects</a>
+        </div>
+    </div>
+</div>
+
+<!--------------contact----------------->
+<div id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Let's Work Together</span>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>attastudy7@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+233 203581172</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📄</div>
+                    <div>
+                        <h4>Resume</h4>
+                        <a href="./CV/CV.pdf" class="cv-link">Download CV</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><img src="Images/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-link"><img src="Images/linkedin.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link"><img src="Images/instagram.png" alt="Instagram"></a>
+                    <a href="#" class="social-link"><img src="Images/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/mqedeqwv" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Twum Kwabena. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>  
+</body>
+</html>
