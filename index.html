@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twum Kwabena - Full Stack Developer & Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Navigation Overlay for Mobile -->
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+
+<div id="header">
+    <nav>
+        <p class="logo">T<span>K</span></p>
+        <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="menu" class="nav-menu">
+          <li><a href="#header" onclick="closeNav()">Home</a></li>
+          <li><a href="#about" onclick="closeNav()">About</a></li>
+          <li><a href="#services" onclick="closeNav()">Services</a></li>
+          <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
+          <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+                    <li class="nav-mobile-cta"><a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" onclick="closeNav()">Hire Me</a></li>
+        </ul>
+    </nav>
+    <div class="hero-container">
+        <div class="header-text">
+            <div class="badge">Available for Freelance</div>
+            <h1 class="hero-title">
+                Hi, I'm <span class="gradient-text">Twum Kwabena</span>
+            </h1>
+            <p class="hero-subtitle">Full Stack Developer & Designer </p>
+            <div class="typing-wrapper">
+                <p class="typing-text">I create <span></span></p>
+            </div>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-ring"></div>
+            <img src="./Images/M3.png" alt="Twum Kwabena">
+        </div>    
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
+        <i class="fa-solid fa-angles-down" aria-hidden="true"></i>
+    </a>
+</div>
+
+<!-- -----About--------- -->
+<div id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Get to know me</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="row">
+            <div class="about-col-1">
+                <div class="about-image-wrapper">
+                    <img src="Images/profile-pic.png" alt="Twum Kwabena">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+            <div class="about-col-2">
+                <p class="about-description">As a highly skilled and experienced computer programmer, 
+                    I am passionate about writing code and developing 
+                    high-quality software that meets the needs of my clients.
+                    My strong background in computer science, coupled with my commitment to using the best
+                    programming practices and tools available, makes 
+                    me a valuable asset to any software development team.</p>
+                    
+                <div class="tab-titles">
+                    <button class="tab-links active-link" onclick="opentab(event, 'experience')">Experience</button>
+                    <button class="tab-links" onclick="opentab(event, 'education')">Education</button>
+                </div>
+                
+                <div class="tab-contents active-tab" id="experience">
+                    <div class="experience-grid">
+                        <div class="experience-card">
+                            <h4>SESA - Student's Mental Assessment Tool</h4>
+                            <p>Built a policy-aligned school wellbeing platform with screening flows, dashboards, at-risk alerts, and secure student tracking.</p>
+                            <span>10-12 weeks</span>
+                        </div>
+                        <div class="experience-card">
+                            <h4>Knowly - Educational Resource Platform</h4>
+                            <p>Created a student study hub with fast search, filtering, study circles, PDF preview, and a mobile-first experience.</p>
+                            <span>8-10 weeks</span>
+                        </div>
+                        <div class="experience-card">
+                            <h4>Booking Website for Henna Art</h4>
+                            <p>Delivered a conversion-focused booking site with service pages, testimonials, pricing structure, and strong contact flows.</p>
+                            <span>4-6 weeks</span>
+                        </div>
+                        <div class="experience-card">
+                            <h4>Freelance Web Designer</h4>
+                            <p>Work across Fiverr and client projects designing responsive interfaces, landing pages, and brand-focused web experiences.</p>
+                            <span>2023 - Present</span>
+                        </div>
+                        <div class="experience-card">
+                            <h4>Freelance Developer</h4>
+                            <p>Build custom websites and app-ready interfaces using modern frontend tools, Python workflows, and responsive layouts.</p>
+                            <span>2023 - Present</span>
+                        </div>
+                        <div class="experience-card">
+                            <h4>Mobile Development Projects</h4>
+                            <p>Developed mobile-focused solutions using Flutter and Swift concepts for multi-platform user experiences.</p>
+                            <span>2023 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-contents" id="education">
+                    <div class="tab-item">
+                        <h4>Senior High School</h4>
+                        <p>St. Peter's Boys Snr. High</p>
+                    </div>
+                    <div class="tab-item">
+                        <h4>Kwame Nkrumah University of Science and Technology</h4>
+                        <p>BSc. Computer Science</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------Services------------------>
+<div id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">What I Bring</span>
+            <h2 class="section-title">My Skills</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                </div>
+                <h3>Frontend Development</h3>
+                <p class="group-description">Building fast, responsive user interfaces for web and mobile screens.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span><span><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fa-brands fa-react" aria-hidden="true"></i>React</span><span><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>Responsive Design</span><span><i class="fa-solid fa-mobile" aria-hidden="true"></i>Mobile-first</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-server" aria-hidden="true"></i>
+                </div>
+                <h3>Backend & APIs</h3>
+                <p class="group-description">Creating secure logic, data handling, integrations, and app workflows.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-brands fa-python" aria-hidden="true"></i>Python</span><span><i class="fa-solid fa-plug" aria-hidden="true"></i>APIs</span><span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Authentication</span><span><i class="fa-solid fa-file-pen" aria-hidden="true"></i>Forms</span><span><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Dashboards</span><span><i class="fa-solid fa-link" aria-hidden="true"></i>Integrations</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p class="group-description">Designing clear user journeys and modern interfaces that convert.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i>UI/UX</span><span><i class="fa-solid fa-wind" aria-hidden="true"></i>Webflow</span><span><i class="fa-brands fa-wordpress" aria-hidden="true"></i>WordPress</span><span><i class="fa-brands fa-figma" aria-hidden="true"></i>Figma</span><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Layout Planning</span><span><i class="fa-solid fa-palette" aria-hidden="true"></i>Branding</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                </div>
+                <h3>Mobile Development</h3>
+                <p class="group-description">Shaping app experiences that stay intuitive across Android and iOS.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>Flutter</span><span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Swift</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iOS</span><span><i class="fa-solid fa-code-branch" aria-hidden="true"></i>Cross-platform</span><span><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>App UX</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                </div>
+                <h3>Project Systems</h3>
+                <p class="group-description">Building complete systems from onboarding to dashboards and reporting.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Booking Systems</span><span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Study Platforms</span><span><i class="fa-solid fa-list-check" aria-hidden="true"></i>Assessments</span><span><i class="fa-solid fa-filter-circle-dollar" aria-hidden="true"></i>Contact Funnels</span><span><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboards</span><span><i class="fa-solid fa-lock" aria-hidden="true"></i>Secure Portals</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                </div>
+                <h3>Performance & Delivery</h3>
+                <p class="group-description">Optimizing quality, speed, and deployment reliability for production use.</p>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>SEO</span><span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Performance</span><span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>Deployment</span><span><i class="fa-solid fa-wand-magic" aria-hidden="true"></i>Responsive Polish</span><span><i class="fa-solid fa-briefcase" aria-hidden="true"></i>Freelance Delivery</span><span><i class="fa-solid fa-sliders" aria-hidden="true"></i>Optimization</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------Portfolio----------->
+<div id="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Recent Projects</span>
+            <h2 class="section-title">My Work</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/BUILD A FULL STACK WEBSITE.jpeg" alt="SESA - Student's Mental Assessment Tool preview">
+                </div>
+                <div class="portfolio-content">
+                    <h3>SESA - Student's Mental Assessment Tool</h3>
+                    <p>Built a policy-aligned student wellbeing platform with guided assessments, at-risk alerts, and secure portfolio tracking for schools.</p>
+                    <div class="project-meta-inline">
+                        <span>Duration: 10-12 weeks</span>
+                        <span>Estimated Cost: $4,500-$7,500</span>
+                    </div>
+                    <a href="https://fopaconsult.com" class="project-link-btn" target="_blank" rel="noopener noreferrer">See Live Site</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/WEB SCRAPING .jpeg" alt="Knowly platform preview">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Knowly - Educational Resource Platform</h3>
+                    <p>Created a student study hub with search, filters, study circles, and mobile-first access to exam prep materials and resources.</p>
+                    <div class="project-meta-inline">
+                        <span>Duration: 8-10 weeks</span>
+                        <span>Estimated Cost: $3,200-$6,000</span>
+                    </div>
+                    <a href="https://knowly-ly8l.onrender.com" class="project-link-btn" target="_blank" rel="noopener noreferrer">See Live Site</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="Images/WEB DESIGN.jpeg" alt="Henna booking website preview">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Booking Website for Henna Art</h3>
+                    <p>Delivered a conversion-focused booking website with service pages, testimonials, structured pricing, and fast contact flows.</p>
+                    <div class="project-meta-inline">
+                        <span>Duration: 4-6 weeks</span>
+                        <span>Estimated Cost: $1,500-$3,500</span>
+                    </div>
+                    <a href="https://henna-site.onrender.com" class="project-link-btn" target="_blank" rel="noopener noreferrer">See Live Site</a>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-cta">
+            <a href="https://www.fiverr.com/s/bdArk6q" class="btn-primary">See All Projects</a>
+        </div>
+    </div>
+</div>
+
+<!----------Reviews----------->
+<div id="reviews">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Client Feedback</span>
+            <h2 class="section-title">Ratings & Reviews</h2>
+        </div>
+        <div class="reviews-grid">
+            <article class="review-card">
+                <div class="review-top">
+                    <h3>SESA - Student's Mental Assessment Tool</h3>
+                    <div class="review-stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p class="review-text">Twum delivered exactly what our school wellness initiative needed. The dashboard clarity, risk alerts, and student tracking flow made rollout simple for both staff and counsellors.</p>
+                <div class="review-author">
+                    <span class="review-avatar">AA</span>
+                    <div>
+                        <h4>Angela Asare</h4>
+                        <p>Project Coordinator, SESA</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <h3>Knowly - Educational Resource Platform</h3>
+                    <div class="review-stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p class="review-text">The platform feels fast, modern, and student-friendly. Search and filtering are excellent, and our users immediately noticed how easy it is to find useful study materials.</p>
+                <div class="review-author">
+                    <span class="review-avatar">KM</span>
+                    <div>
+                        <h4>Kwesi Mensah</h4>
+                        <p>Product Lead, Knowly</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <h3>Booking Website for Henna Art</h3>
+                    <div class="review-stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p class="review-text">I wanted a beautiful booking website that converts, and that is exactly what I got. Clients now find services quickly and inquiries have improved since launch.</p>
+                <div class="review-author">
+                    <span class="review-avatar">NA</span>
+                    <div>
+                        <h4>Nana Agyemang</h4>
+                        <p>Founder, Henna Studio</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+<!--------------contact----------------->
+<div id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Let's Work Together</span>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>attastudy7@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+233 203581172</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📄</div>
+                    <div>
+                        <h4>Resume</h4>
+                        <a href="./CV/CV.pdf" class="cv-link">Download CV</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link social-link-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link social-link-linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link social-link-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/233203581172" class="social-link social-link-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-link social-link-youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/mqedeqwv" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Twum Kwabena. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>  
+</body>
+</html>
