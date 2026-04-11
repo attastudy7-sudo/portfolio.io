@@ -130,23 +130,29 @@ nav .container {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     cursor: pointer;
     z-index: 1003;
-    padding: 8px;
+    padding: 10px;
+    background: transparent;
+    border: none;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger span {
-    width: 28px;
-    height: 3px;
+    width: 26px;
+    height: 2.5px;
     background: var(--text-dark);
-    border-radius: 3px;
+    border-radius: 2px;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -154,28 +160,26 @@ nav .container {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Mobile Navigation Overlay */
 .nav-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(15, 23, 42, 0.26);
+    background: rgba(15, 23, 42, 0.5);
     z-index: 1090;
-    backdrop-filter: none;
-    filter: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-overlay.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
 /* ===== HERO SECTION ===== */
@@ -1227,9 +1231,13 @@ section, #about, #services, #portfolio, #reviews, #contact {
     .hamburger {
         display: flex;
         position: fixed;
-        top: 14px;
-        right: 16px;
+        top: 12px;
+        right: 12px;
         z-index: 1115;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+        align-items: center;
     }
 
     /* Hide Navigation Menu by Default on Mobile */
@@ -1241,17 +1249,16 @@ section, #about, #services, #portfolio, #reviews, #contact {
         width: min(82vw, 320px);
         flex-direction: column;
         background: var(--bg-white);
-        padding: 96px 20px 20px;
+        padding: 88px 24px 24px;
         box-shadow: var(--shadow-xl);
         border-radius: 0;
         border-left: 1px solid var(--border-color);
-        transition: right 0.28s ease;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1110;
-        gap: 6px;
+        gap: 4px;
         pointer-events: none;
         backdrop-filter: none;
         filter: none;
-        will-change: right;
     }
 
     .nav-menu.active {
@@ -1266,9 +1273,11 @@ section, #about, #services, #portfolio, #reviews, #contact {
 
     .nav-menu li a {
         width: 100%;
-        padding: 14px 16px;
-        border-radius: 10px;
+        padding: 16px 20px;
+        border-radius: 12px;
         margin-bottom: 0;
+        font-size: 16px;
+        font-weight: 600;
     }
 
     .nav-menu li a:hover,
@@ -1276,42 +1285,48 @@ section, #about, #services, #portfolio, #reviews, #contact {
         transform: none;
     }
 
-    .hamburger.active {
-        background: #fff;
-        border: 2px solid var(--primary-color);
-        border-radius: 10px;
-    }
+.hamburger.active {
+    background: transparent;
+    border: none;
+}
 
-    .hamburger.active span {
-        background: var(--primary-color);
-    }
+.hamburger.active span {
+    background: var(--text-dark);
+}
 
     .nav-mobile-cta {
         display: block;
-        margin-top: 8px;
+        margin-top: 16px;
     }
 
     .nav-mobile-cta a {
+        display: block;
         text-align: center;
         font-weight: 700;
-        background: #fff;
-        color: #000;
-        border: 2px solid var(--primary-color);
+        background: var(--primary-color);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: var(--transition);
     }
 
     .nav-mobile-cta a:hover,
     .nav-mobile-cta a.active,
     .nav-mobile-cta a:visited {
-        color: #000;
+        background: var(--primary-dark);
+        color: white;
     }
 
     #menu li a {
         color: var(--text-dark);
+        font-size: 16px;
     }
 
     #menu li a:hover,
     #menu li a.active {
-        color: #fff;
+        background: var(--primary-color);
+        color: white;
     }
 
     /* Hero Section Mobile */
