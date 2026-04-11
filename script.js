@@ -28,7 +28,7 @@ function closeNav() {
 }
 
 // ===== TAB FUNCTIONALITY =====
-function opentab(tabname) {
+function opentab(event, tabname) {
     const tablinks = document.getElementsByClassName("tab-links");
     const tabcontents = document.getElementsByClassName("tab-contents");
     
@@ -43,7 +43,9 @@ function opentab(tabname) {
     }
     
     // Add active class to clicked tab
-    event.currentTarget.classList.add("active-link");
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add("active-link");
+    }
     
     // Show selected tab content
     document.getElementById(tabname).classList.add("active-tab");
