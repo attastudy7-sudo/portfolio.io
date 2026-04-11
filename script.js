@@ -1,28 +1,34 @@
 // ===== MOBILE NAVIGATION =====
-const menu = document.getElementById('menu');
-const hamburger = document.getElementById('hamburger');
-const overlay = document.getElementById('navOverlay');
-
 function toggleNav() {
-    const isActive = menu.classList.toggle('active');
+    const menu = document.getElementById('menu');
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('navOverlay');
+    
+    menu.classList.toggle('active');
     hamburger.classList.toggle('active');
     overlay.classList.toggle('active');
     
     // Prevent body scroll when menu is open
-    document.body.style.overflow = isActive ? 'hidden' : '';
-}
-
-function closeNav() {
     if (menu.classList.contains('active')) {
-        menu.classList.remove('active');
-        hamburger.classList.remove('active');
-        overlay.classList.remove('active');
+        document.body.style.overflow = 'hidden';
+    } else {
         document.body.style.overflow = '';
     }
 }
 
+function closeNav() {
+    const menu = document.getElementById('menu');
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('navOverlay');
+    
+    menu.classList.remove('active');
+    hamburger.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // ===== TAB FUNCTIONALITY =====
-function opentab(event, tabname) {
+function opentab(tabname) {
     const tablinks = document.getElementsByClassName("tab-links");
     const tabcontents = document.getElementsByClassName("tab-contents");
     
@@ -289,6 +295,7 @@ document.addEventListener('keydown', (e) => {
 
 // Focus trap for mobile menu
 const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+const menu = document.getElementById('menu');
 
 if (menu) {
     const firstFocusableElement = menu.querySelectorAll(focusableElements)[0];
@@ -317,3 +324,4 @@ if (menu) {
 }
 
 console.log('🚀 Portfolio loaded successfully!');
+
