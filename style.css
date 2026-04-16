@@ -276,6 +276,15 @@ nav .container {
     animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
+@media (max-width: 600px) {
+    .badge {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
+
 .hero-title {
     font-size: clamp(44px, 4.8vw, 56px);
     font-weight: 800;
@@ -1047,30 +1056,53 @@ section, #about, #services, #portfolio, #reviews, #contact {
     color: var(--primary-dark);
 }
 
+/* Arrange social links in a row with space between */
 .social-links {
+    margin-top: 18px;
     display: flex;
-    gap: 12px;
-    margin-top: 32px;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
 }
 
+/* Social brand colors, no hover */
+.social-link-whatsapp {
+    color: #25D366 !important;
+}
+.social-link-linkedin {
+    color: #0077B5 !important;
+}
+.social-link-fiverr {
+    color: #1DBF73 !important;
+}
+.social-link-upwork {
+    color: #6FDA44 !important;
+}
 .social-link {
-    width: 44px;
-    height: 44px;
+    background: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transition: transform 0.18s cubic-bezier(0.4,0,0.2,1);
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(100, 197, 61, 0.12), rgba(100, 197, 61, 0.05));
-    border: 1px solid rgba(100, 197, 61, 0.18);
-    border-radius: 50%;
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, color 0.28s ease;
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    text-decoration: none !important;
 }
 
-.social-link i {
-    font-size: 18px;
-    line-height: 1;
+.social-link:hover {
+    transform: translateY(-1px) scale(1.04);
+}
+
+.fiverr-svg-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+}
     color: currentColor;
 }
 
