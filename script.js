@@ -52,73 +52,193 @@ function opentab(event, tabname) {
 }
 
 // ===== SCROLL ANIMATIONS =====
-// Add fade-in animation when elements come into view
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all service cards, portfolio items, etc.
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .portfolio-item, .contact-item');
-    
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
-
-    const experienceGrid = document.querySelector('#experience .experience-grid');
-    const desktopMedia = window.matchMedia('(min-width: 901px)');
+function setupScrollReveals() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) return;
 
-    if (experienceGrid && desktopMedia.matches && !reduceMotion.matches) {
-        let animationFrameId = null;
-        let isPaused = false;
-        let direction = 1;
+    document.body.classList.add('js-scroll-reveal');
 
-        const autoScroll = () => {
-            if (!isPaused) {
-                experienceGrid.scrollLeft += 0.45 * direction;
+    const revealTargets = [];
+    const revealCheck = () => {
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-                const maxScroll = experienceGrid.scrollWidth - experienceGrid.clientWidth;
+        revealTargets.forEach((element) => {
+            if (element.classList.contains('is-visible')) return;
 
-                if (experienceGrid.scrollLeft >= maxScroll - 1) {
-                    direction = -1;
-                } else if (experienceGrid.scrollLeft <= 0) {
-                    direction = 1;
+            const rect = element.getBoundingClientRect();
+            const isVisible = rect.top < viewportHeight * 0.88 && rect.bottom > 0;
+
+            if (isVisible) {
+                element.classList.add('is-visible');
+            }
+        });
+    };
+
+    const observer = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observerInstance.unobserve(entry.target);
                 }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -6% 0px'
+        })
+        : null;
+
+    const revealGroups = [
+        { selector: '#about .section-header', baseClass: 'reveal-fade-up' },
+        { selector: '#about .about-col-1', baseClass: 'reveal-slide-left' },
+        { selector: '#about .about-col-2', baseClass: 'reveal-slide-right' },
+        { selector: '#experience .section-header', baseClass: 'reveal-fade-up' },
+        { selector: '#experience .experience-item', baseClass: 'reveal-experience', stagger: true, alternate: true },
+        { selector: '#services .section-header', baseClass: 'reveal-fade-up' },
+        { selector: '#services .service-card', baseClass: 'reveal-scale', stagger: true },
+        { selector: '#services .services-cta-wrap', baseClass: 'reveal-fade-up' },
+        { selector: '#reviews .section-header', baseClass: 'reveal-fade-up' },
+        { selector: '#reviews .review-card', baseClass: 'reveal-pop', stagger: true },
+        { selector: '#contact .section-header', baseClass: 'reveal-fade-up' },
+        { selector: '#contact .contact-info', baseClass: 'reveal-slide-left' },
+        { selector: '#contact .contact-form-wrapper', baseClass: 'reveal-slide-right' }
+    ];
+
+    revealGroups.forEach(({ selector, baseClass, stagger = false, alternate = false }) => {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach((element, index) => {
+            element.classList.add('reveal-item', baseClass);
+            revealTargets.push(element);
+
+            if (stagger) {
+                element.style.transitionDelay = `${index * 120}ms`;
             }
 
-            animationFrameId = window.requestAnimationFrame(autoScroll);
-        };
+            if (alternate) {
+                element.classList.add(index % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right');
+            }
 
-        experienceGrid.addEventListener('mouseenter', () => {
-            isPaused = true;
-        });
-
-        experienceGrid.addEventListener('mouseleave', () => {
-            isPaused = false;
-        });
-
-        autoScroll();
-
-        window.addEventListener('beforeunload', () => {
-            if (animationFrameId) {
-                window.cancelAnimationFrame(animationFrameId);
+            if (observer) {
+                observer.observe(element);
             }
         });
+    });
+
+    revealCheck();
+
+    if (!observer) {
+        window.addEventListener('scroll', revealCheck, { passive: true });
+        window.addEventListener('resize', revealCheck, { passive: true });
+    } else {
+        window.addEventListener('scroll', revealCheck, { passive: true });
+        window.addEventListener('resize', revealCheck, { passive: true });
     }
+}
+
+// ===== HERO ANIMATION =====
+function setupHeroAnimation() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const heroTargets = [
+        '.badge',
+        '.hero-title',
+        '.hero-subtitle',
+        '.typing-wrapper',
+        '.cta-buttons',
+        '.profile'
+    ];
+
+    const heroElements = [];
+
+    heroTargets.forEach((selector) => {
+        heroElements.push(...document.querySelectorAll(selector));
+    });
+
+    if (!heroElements.length) return;
+
+    heroElements.forEach((element, index) => {
+        if (element.dataset.heroAnimated === 'true') return;
+        element.classList.add('hero-animate');
+        element.style.setProperty('--hero-delay', `${index * 120}ms`);
+        element.dataset.heroAnimated = 'true';
+    });
+
+    if (reduceMotion.matches) {
+        document.body.classList.add('hero-ready');
+        return;
+    }
+
+    // Force a DOM layout reflow so the browser registers the initial state (opacity 0)
+    // before applying the .hero-ready class to animate
+    document.body.offsetHeight;
+
+    document.body.classList.add('hero-ready');
+}
+
+// ===== TYPING ANIMATION =====
+function setupTypingAnimation() {
+    const el = document.querySelector('.typing-text span');
+    if (!el || el.dataset.typed === 'true') return;
+
+    const words = [
+        'Beautiful Interfaces.',
+        'Scalable Web Apps.',
+        'User-Centered Designs.'
+    ];
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) {
+        el.textContent = words[0];
+        el.dataset.typed = 'true';
+        return;
+    }
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typeSpeed = 80;
+    const deleteSpeed = 40;
+    const pause = 1200;
+
+    function tick() {
+        const current = words[wordIndex];
+        if (!deleting) {
+            charIndex++;
+            el.textContent = current.slice(0, charIndex);
+            if (charIndex === current.length) {
+                deleting = true;
+                setTimeout(tick, pause);
+                return;
+            }
+            setTimeout(tick, typeSpeed);
+        } else {
+            charIndex--;
+            el.textContent = current.slice(0, charIndex);
+            if (charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(tick, 300);
+                return;
+            }
+            setTimeout(tick, deleteSpeed);
+        }
+    }
+
+    el.dataset.typed = 'true';
+    tick();
+}
+
+// ===== UNIFIED PORTFOLIO INITIALIZATION =====
+function initPortfolio() {
+    // Prevent double execution
+    if (window.portfolioInitialized) return;
+    window.portfolioInitialized = true;
+
+    try { setupScrollReveals(); } catch (e) { console.error('Scroll reveal init error:', e); }
+    try { setupHeroAnimation(); } catch (e) { console.error('Hero animation init error:', e); }
+    try { setupTypingAnimation(); } catch (e) { console.error('Typing animation init error:', e); }
+    try { updateActiveNavLink(); } catch (e) { console.error('Active nav link init error:', e); }
 
     const navMenu = document.getElementById('menu');
     if (navMenu) {
@@ -142,39 +262,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}
+
+// Safely bootstrap the application
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolio);
+} else {
+    initPortfolio();
+}
+
 
 // ===== ACTIVE NAVIGATION ON SCROLL =====
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('div[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
+function updateActiveNavLink() {
+    const navLinks = Array.from(document.querySelectorAll('.nav-menu a[href^="#"]'));
+    if (!navLinks.length) return;
+
+    const linkedSections = navLinks
+        .map((link) => {
+            const targetId = link.getAttribute('href');
+            if (!targetId || targetId === '#') return null;
+            const section = document.querySelector(targetId);
+            return section ? { link, section } : null;
+        })
+        .filter(Boolean);
+
+    if (!linkedSections.length) return;
+
+    // Use a point just below the fixed nav to determine the current section.
+    const checkpoint = window.scrollY + 120;
+    let activePair = linkedSections[0];
+
+    linkedSections.forEach((pair) => {
+        if (pair.section.offsetTop <= checkpoint) {
+            activePair = pair;
         }
     });
 
-    // Add shadow to nav on scroll
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    } else {
-        nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+    // Force last section active when at the bottom of the page.
+    const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+    if (nearBottom) {
+        activePair = linkedSections[linkedSections.length - 1];
     }
-});
+
+    navLinks.forEach((link) => link.classList.remove('active'));
+    activePair.link.classList.add('active');
+}
+
+window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+window.addEventListener('resize', updateActiveNavLink);
+
 
 // ===== SMOOTH SCROLL FOR NAVIGATION =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -205,20 +341,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===== FORM VALIDATION & FEEDBACK =====
 const contactForm = document.querySelector('#contact form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
         const submitBtn = this.querySelector('.btn-submit');
+        const statusEl = this.querySelector('.form-status');
         const originalText = submitBtn.textContent;
-        
+
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        
-        // The form will submit normally to Formspree
-        // You can add additional validation here if needed
-        
-        setTimeout(() => {
+
+        if (statusEl) {
+            statusEl.className = 'form-status';
+            statusEl.textContent = 'Sending your message...';
+        }
+
+        try {
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                this.reset();
+                if (statusEl) {
+                    statusEl.className = 'form-status is-success';
+                    statusEl.textContent = 'Thanks. Your message was sent successfully.';
+                }
+            } else {
+                if (statusEl) {
+                    statusEl.className = 'form-status is-error';
+                    statusEl.textContent = 'Sorry, something went wrong. Please try again.';
+                }
+            }
+        } catch (error) {
+            if (statusEl) {
+                statusEl.className = 'form-status is-error';
+                statusEl.textContent = 'Network error. Please check your connection and retry.';
+            }
+        } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 3000);
+        }
     });
 }
 
@@ -262,15 +430,11 @@ document.addEventListener('mousemove', (e) => {
 // ===== LOAD ANIMATIONS =====
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
-    // Trigger any initial animations
-    const heroElements = document.querySelectorAll('.header-text > *');
-    heroElements.forEach((el, index) => {
-        setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
+});
+
+window.addEventListener('pageshow', () => {
+    setupHeroAnimation();
+    setupTypingAnimation();
 });
 
 // ===== PERFORMANCE OPTIMIZATION =====
