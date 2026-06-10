@@ -53,10 +53,11 @@ function opentab(event, tabname) {
 
 // ===== SCROLL ANIMATIONS =====
 function setupScrollReveals() {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduceMotion.matches) return;
-
+    // Enable CSS reveal styles
     document.body.classList.add('js-scroll-reveal');
+    // Ensure elements have base hidden state right away (not dependent on observer)
+    // so that .is-visible toggling produces visible motion.
+
 
     const revealTargets = [];
     const revealCheck = () => {
@@ -97,8 +98,6 @@ function setupScrollReveals() {
         { selector: '#services .section-header', baseClass: 'reveal-fade-up' },
         { selector: '#services .service-card', baseClass: 'reveal-scale', stagger: true },
         { selector: '#services .services-cta-wrap', baseClass: 'reveal-fade-up' },
-        { selector: '#reviews .section-header', baseClass: 'reveal-fade-up' },
-        { selector: '#reviews .review-card', baseClass: 'reveal-pop', stagger: true },
         { selector: '#contact .section-header', baseClass: 'reveal-fade-up' },
         { selector: '#contact .contact-info', baseClass: 'reveal-slide-left' },
         { selector: '#contact .contact-form-wrapper', baseClass: 'reveal-slide-right' }
@@ -138,7 +137,6 @@ function setupScrollReveals() {
 
 // ===== HERO ANIMATION =====
 function setupHeroAnimation() {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const heroTargets = [
         '.badge',
         '.hero-title',
@@ -149,36 +147,35 @@ function setupHeroAnimation() {
     ];
 
     const heroElements = [];
-
     heroTargets.forEach((selector) => {
         heroElements.push(...document.querySelectorAll(selector));
     });
 
     if (!heroElements.length) return;
 
+    // Remove hero-ready first so we can restart the animation cleanly
+    document.body.classList.remove('hero-ready');
+
     heroElements.forEach((element, index) => {
-        if (element.dataset.heroAnimated === 'true') return;
         element.classList.add('hero-animate');
         element.style.setProperty('--hero-delay', `${index * 120}ms`);
         element.dataset.heroAnimated = 'true';
     });
 
-    if (reduceMotion.matches) {
-        document.body.classList.add('hero-ready');
-        return;
-    }
-
-    // Force a DOM layout reflow so the browser registers the initial state (opacity 0)
-    // before applying the .hero-ready class to animate
-    document.body.offsetHeight;
-
-    document.body.classList.add('hero-ready');
+    // Double rAF: first frame registers opacity:0 as the painted state,
+    // second frame adds hero-ready so the CSS transition fires toward opacity:1.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.body.classList.add('hero-ready');
+        });
+    });
 }
 
 // ===== TYPING ANIMATION =====
 function setupTypingAnimation() {
     const el = document.querySelector('.typing-text span');
     if (!el || el.dataset.typed === 'true') return;
+    el.dataset.typed = 'true';
 
     const words = [
         'Beautiful Interfaces.',
@@ -186,20 +183,14 @@ function setupTypingAnimation() {
         'User-Centered Designs.'
     ];
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduceMotion.matches) {
-        el.textContent = words[0];
-        el.dataset.typed = 'true';
-        return;
-    }
-
     let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+    let charIndex  = 0;
+    let deleting   = false;
 
-    const typeSpeed = 80;
-    const deleteSpeed = 40;
-    const pause = 1200;
+    const typeSpeed   = 75;
+    const deleteSpeed = 38;
+    const pauseAfterWord   = 1400;
+    const pauseBeforeType  = 320;
 
     function tick() {
         const current = words[wordIndex];
@@ -208,7 +199,7 @@ function setupTypingAnimation() {
             el.textContent = current.slice(0, charIndex);
             if (charIndex === current.length) {
                 deleting = true;
-                setTimeout(tick, pause);
+                setTimeout(tick, pauseAfterWord);
                 return;
             }
             setTimeout(tick, typeSpeed);
@@ -216,17 +207,19 @@ function setupTypingAnimation() {
             charIndex--;
             el.textContent = current.slice(0, charIndex);
             if (charIndex === 0) {
-                deleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(tick, 300);
+                deleting   = false;
+                wordIndex  = (wordIndex + 1) % words.length;
+                setTimeout(tick, pauseBeforeType);
                 return;
             }
             setTimeout(tick, deleteSpeed);
         }
     }
 
-    el.dataset.typed = 'true';
-    tick();
+    // Wait for the hero fade-in to finish before starting typing
+    // hero transition is 0.8s + max delay of 5 * 120ms = 1.4s total
+    const heroDelay = 1500;
+    setTimeout(tick, heroDelay);
 }
 
 // ===== UNIFIED PORTFOLIO INITIALIZATION =====
@@ -390,26 +383,7 @@ if (contactForm) {
     });
 }
 
-// ===== TYPING ANIMATION ENHANCEMENT =====
-// The typing animation is handled in CSS, but we can add extra control if needed
-const typingElement = document.querySelector('.typing-text span');
-if (typingElement) {
-    const phrases = [
-        "Beautiful Websites",
-        "Powerful Applications",
-        "Digital Solutions"
-    ];
-    let currentPhrase = 0;
-    
-    // This is now handled by CSS animation, but kept for reference
-    // You can uncomment and modify if you want JS-based typing
-    /*
-    setInterval(() => {
-        currentPhrase = (currentPhrase + 1) % phrases.length;
-        typingElement.setAttribute('data-text', phrases[currentPhrase]);
-    }, 3000);
-    */
-}
+
 
 // ===== PREVENT DEFAULT BEHAVIOR FOR EMPTY LINKS =====
 document.querySelectorAll('a[href="#"]').forEach(link => {
@@ -432,10 +406,20 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-window.addEventListener('pageshow', () => {
-    setupHeroAnimation();
-    setupTypingAnimation();
+window.addEventListener('pageshow', (event) => {
+    // Only re-init on BFCache restores (back/forward navigation),
+    // not on the initial page load which DOMContentLoaded already handled.
+    if (event.persisted) {
+        window.portfolioInitialized = false;
+        document.body.classList.remove('hero-ready');
+        heroElements && heroElements.forEach(el => {
+            el.dataset.heroAnimated = '';
+            el.classList.remove('hero-animate');
+        });
+        initPortfolio();
+    }
 });
+
 
 // ===== PERFORMANCE OPTIMIZATION =====
 // Debounce scroll events for better performance

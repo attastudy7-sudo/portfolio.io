@@ -28,7 +28,7 @@
                     <li><a href="#experience" onclick="closeNav()">Projects</a></li>
           <li><a href="#services" onclick="closeNav()">Services</a></li>
           <li><a href="#contact" onclick="closeNav()">Contact</a></li>
-                    <li class="nav-mobile-cta"><a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" onclick="closeNav()">Hire Me</a></li>
+                    <li class="nav-mobile-cta" role="none"><a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" onclick="closeNav()" class="nav-cta-link">Hire Me ↗</a></li>
         </ul>
     </nav>
     <div class="hero-container">
@@ -39,7 +39,7 @@
             </h1>
             <p class="hero-subtitle">Full Stack Developer & Designer </p>
             <div class="typing-wrapper">
-                <p class="typing-text">I create <span></span></p>
+                <p class="typing-text">I create <span></span><span class="typing-cursor" aria-hidden="true"></span></p>
             </div>
             <div class="cta-buttons">
                 <a href="#experience" class="btn-primary">View My Work</a>
@@ -60,6 +60,8 @@
 <div id="about">
     <div class="container">
         <div class="section-header">
+
+                    
             <span class="section-label">Get to know me</span>
             <h2 class="section-title">About Me</h2>
         </div>
@@ -112,8 +114,7 @@
                 </div>
                 <div class="experience-body">
                     <h3>SESA - Student's Mental Assessment Tool</h3>
-                    <p>SESA was designed to help schools detect and respond to student wellbeing concerns earlier through structured assessments, smart risk signaling, and role-based visibility for counsellors and administrators. I built the full frontend experience and core backend workflows to ensure that screening, review, and follow-up actions felt simple and guided for non-technical staff.</p>
-                    <p>I also focused heavily on trust and clarity in the interface by implementing secure student data handling patterns, clear status indicators, and clean dashboard summaries that made school-wide trends easy to interpret. The final product gave education teams a practical way to move from reactive support to consistent, policy-aligned intervention planning.</p>
+                    <p>SESA centralises student wellbeing data into guided assessments and role-specific dashboards so staff can spot risks, prioritise cases, and track interventions. I implemented compact, accessible UI components, secure data flows, cohort filters, risk scoring, and an action-tracking timeline, plus exportable reports and admin controls. The interface is optimised for low-bandwidth school networks and keyboard accessibility, reducing friction for non-technical users while supporting clear, auditable follow-up workflows.</p>
                     <div class="experience-meta">
                         <span class="experience-duration">10-12 weeks</span>
                         <a href="https://fopaconsult.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
@@ -123,22 +124,21 @@
 
             <article class="experience-item">
                 <div class="experience-media">
-                    <img class="experience-img experience-img-knowly" src="Images/WEB SCRAPING .jpeg" alt="Knowly project preview">
+                    <img class="experience-img" src="Images/WEB SCRAPING .jpeg" alt="Motown.AI platform preview">
                     <div class="experience-overlay">
-                        <h4>Knowly - Educational Resource Platform</h4>
-                        <a href="https://knowly-ly8l.onrender.com" class="experience-overlay-link" target="_blank" rel="noopener noreferrer">
+                        <h4>Motown.AI — AI Study Platform</h4>
+                        <a href="https://motownai.com" class="experience-overlay-link" target="_blank" rel="noopener noreferrer">
                             Visit
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
                 <div class="experience-body">
-                    <h3>Knowly - Educational Resource Platform</h3>
-                    <p>Knowly was built as a student-first learning hub where users could discover quality revision material quickly without information overload. I crafted the search and filtering experience to support fast retrieval of notes, exam prep content, and grouped resources while keeping the layout lightweight on slower devices and school networks.</p>
-                    <p>Beyond discovery, I implemented usability improvements such as clean card hierarchy, readable preview states, and mobile-friendly interaction patterns that reduced friction for day-to-day study sessions. The platform evolved into a more focused resource environment where students could spend less time searching and more time learning.</p>
+                    <h3>Motown.AI — AI Study Platform</h3>
+                    <p>Motown.AI turns lecture slides and PDFs into personalised study packs — flashcards, quizzes, fill-in exercises, AI notes, and a podcast — in minutes. Built for university students in Ghana (KNUST, UG, UCC), the platform features a dark-mode study room, spaced repetition progress tracking, quota-gated tiers, Paystack subscription payments, and a community Discover feed where users share generated packs. Engineered with Flask, Supabase Postgres, Cloudinary, and a multi-provider AI pipeline (Gemini + OpenRouter).</p>
                     <div class="experience-meta">
-                        <span class="experience-duration">8-10 weeks</span>
-                        <a href="https://knowly-ly8l.onrender.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
+                        <span class="experience-duration">Ongoing</span>
+                        <a href="https://motownai.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
                     </div>
                 </div>
             </article>
@@ -156,11 +156,31 @@
                 </div>
                 <div class="experience-body">
                     <h3>Booking Website for Henna Art</h3>
-                    <p>This booking website project centered on turning social-media traffic into confirmed client inquiries through a cleaner conversion journey. I designed and implemented structured service pages, testimonial emphasis blocks, and direct booking calls-to-action that guided visitors from browsing to action with minimal confusion.</p>
-                    <p>Special attention was given to mobile layout quality, speed, and contact reliability because most customer traffic came from phones. By simplifying page flow, sharpening service storytelling, and improving inquiry touchpoints, the site became a stronger digital storefront that supported consistent bookings and improved trust with first-time visitors.</p>
+                    <p>This mobile-first booking site converts social interest into bookings through clear service cards, pricing cues, and a streamlined inquiry flow. I optimised image delivery, added accessible forms with inline validation, and prioritised trust signals such as galleries and targeted testimonials. Click-to-call and WhatsApp integrations simplify contact, while lightweight analytics provide actionable insights on which services convert best for the owner.</p>
                     <div class="experience-meta">
                         <span class="experience-duration">4-6 weeks</span>
                         <a href="https://henna-site.onrender.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="experience-item">
+                <div class="experience-media">
+                    <img class="experience-img experience-img-cepecom" src="Images\CEPECOM-screenshot.jpeg" alt="CEPECOM project preview">
+                    <div class="experience-overlay">
+                        <h4>CEPECOM - Community Empowerment Portal</h4>
+                        <a href="https://cepecomgh.org" class="experience-overlay-link" target="_blank" rel="noopener noreferrer">
+                            Visit
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="experience-body">
+                    <h3>CEPECOM - Community Empowerment Portal</h3>
+                    <p>CEPECOM aggregates programs, events, and resources into a responsive portal with searchable listings and clear sign-up/contact paths. For the showcase I prepared a frontend snapshot and documentation emphasising discoverability, accessible typography, and low-bandwidth performance. The layout highlights events and CTAs so volunteers and beneficiaries can find opportunities quickly, while content workflows make updates manageable for non-technical maintainers.</p>
+                    <div class="experience-meta">
+                        <span class="experience-duration">1-2 weeks</span>
+                        <a href="https://cepecomgh.org" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
                     </div>
                 </div>
             </article>
@@ -252,79 +272,7 @@
     </div>
 </div>
 
-<!----------Reviews----------->
-<div id="reviews">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">Client Feedback</span>
-            <h2 class="section-title">Ratings & Reviews</h2>
-        </div>
-        <div class="reviews-grid">
-            <article class="review-card">
-                <div class="review-top">
-                    <h3>SESA - Student's Mental Assessment Tool</h3>
-                    <div class="review-stars" aria-label="5 out of 5 stars">
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <p class="review-text">Twum delivered exactly what our school wellness initiative needed. The dashboard clarity, risk alerts, and student tracking flow made rollout simple for both staff and counsellors.</p>
-                <div class="review-author">
-                    <span class="review-avatar">AA</span>
-                    <div>
-                        <h4>Angela Asare</h4>
-                        <p>Project Coordinator, SESA</p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="review-card">
-                <div class="review-top">
-                    <h3>Knowly - Educational Resource Platform</h3>
-                    <div class="review-stars" aria-label="5 out of 5 stars">
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <p class="review-text">The platform feels fast, modern, and student-friendly. Search and filtering are excellent, and our users immediately noticed how easy it is to find useful study materials.</p>
-                <div class="review-author">
-                    <span class="review-avatar">KM</span>
-                    <div>
-                        <h4>Kwesi Mensah</h4>
-                        <p>Product Lead, Knowly</p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="review-card">
-                <div class="review-top">
-                    <h3>Booking Website for Henna Art</h3>
-                    <div class="review-stars" aria-label="5 out of 5 stars">
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <p class="review-text">I wanted a beautiful booking website that converts, and that is exactly what I got. Clients now find services quickly and inquiries have improved since launch.</p>
-                <div class="review-author">
-                    <span class="review-avatar">NA</span>
-                    <div>
-                        <h4>Nana Agyemang</h4>
-                        <p>Founder, Henna Studio</p>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-</div>
+<!-- Reviews section removed -->
 
 <!--------------contact----------------->
 <div id="contact">
