@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Services — Twum Kwabena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+<!-- Navigation Overlay for Mobile -->
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+
+<nav>
+    <p class="logo">T<span>K</span></p>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul id="menu" class="nav-menu">
+      <li><a href="index.html#header" onclick="closeNav()">Home</a></li>
+      <li><a href="index.html#about" onclick="closeNav()">About</a></li>
+      <li><a href="index.html#services" onclick="closeNav()">Services</a></li>
+      <li><a href="index.html#contact" onclick="closeNav()">Contact</a></li>
+      <li><a href="projects.html" class="active" onclick="closeNav()">Projects</a></li>
+      <li class="nav-mobile-cta" role="none"><a href="#" onclick="openHireModal(); return false;" class="nav-cta-link">Hire Me</a></li>
+    </ul>
+</nav>
+
+<section class="pj-hero">
+    <div class="container">
+        <span class="section-label">My Work</span>
+        <h1 class="pj-hero-title">Projects &amp; Services</h1>
+        <p class="pj-hero-sub">Every project below was built for a real client or real users. Click any card to see it live.</p>
+    </div>
+</section>
+
+<section class="pj-projects">
+    <div class="container">
+        <div class="pj-grid">
+
+            <!-- Motown AI -->
+            <article class="pj-card">
+                <div class="pj-card-img-wrap">
+                    <img src="Images/WEB SCRAPING .jpeg" alt="Motown AI study platform preview" class="pj-card-img">
+                    <div class="pj-card-overlay">
+                        <a href="https://motownai.com" target="_blank" rel="noopener noreferrer" class="pj-overlay-btn">
+                            Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pj-card-body">
+                    <div class="pj-card-meta">
+                        <span class="pj-tag pj-tag--type">AI Platform</span>
+                        <span class="pj-tag pj-tag--duration">Ongoing</span>
+                    </div>
+                    <h2 class="pj-card-title">Motown AI — AI Study Platform</h2>
+                    <p class="pj-card-desc">Turns lecture slides and PDFs into personalised study packs — flashcards, quizzes, fill-in exercises, AI notes, and a podcast — in minutes. Built for KNUST, UG, and UCC students with spaced repetition tracking, Paystack subscription payments, and a community Discover feed.</p>
+                    <div class="pj-card-stack">
+                        <span>Flask</span><span>Supabase</span><span>Gemini AI</span><span>Paystack</span><span>Cloudinary</span>
+                    </div>
+                    <a href="https://motownai.com" target="_blank" rel="noopener noreferrer" class="pj-card-cta btn-primary">
+                        See Live Site <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- SESA -->
+            <article class="pj-card">
+                <div class="pj-card-img-wrap">
+                    <img src="Images/BUILD A FULL STACK WEBSITE.jpeg" alt="SESA student assessment tool preview" class="pj-card-img">
+                    <div class="pj-card-overlay">
+                        <a href="https://fopaconsult.com" target="_blank" rel="noopener noreferrer" class="pj-overlay-btn">
+                            Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pj-card-body">
+                    <div class="pj-card-meta">
+                        <span class="pj-tag pj-tag--type">Web Platform</span>
+                        <span class="pj-tag pj-tag--duration">10–12 weeks</span>
+                    </div>
+                    <h2 class="pj-card-title">SESA — Student Mental Assessment Tool</h2>
+                    <p class="pj-card-desc">Centralises student wellbeing data into guided assessments and role-specific dashboards so school staff can spot risks, prioritise cases, and track interventions. Risk scoring, cohort filters, exportable reports, and an action-tracking timeline — optimised for low-bandwidth school networks.</p>
+                    <div class="pj-card-stack">
+                        <span>Flask</span><span>PostgreSQL</span><span>JavaScript</span><span>PDF Export</span>
+                    </div>
+                    <a href="https://fopaconsult.com" target="_blank" rel="noopener noreferrer" class="pj-card-cta btn-primary">
+                        See Live Site <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- CEPECOM -->
+            <article class="pj-card">
+                <div class="pj-card-img-wrap">
+                    <img src="Images/CEPECOM-screenshot.jpeg" alt="CEPECOM community portal preview" class="pj-card-img">
+                    <div class="pj-card-overlay">
+                        <a href="https://cepecomgh.org" target="_blank" rel="noopener noreferrer" class="pj-overlay-btn">
+                            Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pj-card-body">
+                    <div class="pj-card-meta">
+                        <span class="pj-tag pj-tag--type">NGO Portal</span>
+                        <span class="pj-tag pj-tag--duration">1–2 weeks</span>
+                    </div>
+                    <h2 class="pj-card-title">CEPECOM — Community Empowerment Portal</h2>
+                    <p class="pj-card-desc">Responsive portal for a Ghanaian conflict mediation NGO. Searchable event and program listings, clear volunteer sign-up paths, and a content workflow that non-technical staff can maintain. Navy, cream, and terracotta brand palette preserved exactly.</p>
+                    <div class="pj-card-stack">
+                        <span>Flask</span><span>Neon PostgreSQL</span><span>Vercel</span><span>HTML/CSS</span>
+                    </div>
+                    <a href="https://cepecomgh.org" target="_blank" rel="noopener noreferrer" class="pj-card-cta btn-primary">
+                        See Live Site <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Henna Booking Site -->
+            <article class="pj-card">
+                <div class="pj-card-img-wrap">
+                    <img src="Images/WEB DESIGN.jpeg" alt="Henna booking website preview" class="pj-card-img">
+                    <div class="pj-card-overlay">
+                        <a href="https://henna-site.onrender.com" target="_blank" rel="noopener noreferrer" class="pj-overlay-btn">
+                            Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pj-card-body">
+                    <div class="pj-card-meta">
+                        <span class="pj-tag pj-tag--type">Booking Site</span>
+                        <span class="pj-tag pj-tag--duration">4–6 weeks</span>
+                    </div>
+                    <h2 class="pj-card-title">Booking Website for Henna Art</h2>
+                    <p class="pj-card-desc">Mobile-first booking site that converts social interest into bookings via clear service cards, pricing cues, and a streamlined inquiry flow. Click-to-call and WhatsApp integrations, inline form validation, and trust signals including galleries and testimonials.</p>
+                    <div class="pj-card-stack">
+                        <span>HTML/CSS</span><span>JavaScript</span><span>WhatsApp API</span>
+                    </div>
+                    <a href="https://henna-site.onrender.com" target="_blank" rel="noopener noreferrer" class="pj-card-cta btn-primary">
+                        See Live Site <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="pj-services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">What I Bring</span>
+            <h2 class="section-title">What I Can Build For You</h2>
+            <p class="services-intro">The tools and systems I use to design, build, and ship reliable digital products.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                </div>
+                <h3>Frontend Development</h3>
+                <p class="group-description">Build responsive, fast-loading interfaces that stay clean across desktop and mobile touchpoints.</p>
+                <span class="service-outcome">Fast UI</span>
+                <div class="skill-tags">
+                    <span><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span><span><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fa-brands fa-react" aria-hidden="true"></i>React</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-server" aria-hidden="true"></i>
+                </div>
+                <h3>Backend & APIs</h3>
+                <p class="group-description">Design secure backend workflows, robust integrations, and dependable data operations.</p>
+                <span class="service-outcome">Secure APIs</span>
+                <div class="skill-tags">
+                    <span><i class="fa-brands fa-python" aria-hidden="true"></i>Python</span><span><i class="fa-solid fa-plug" aria-hidden="true"></i>APIs</span><span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Authentication</span><span><i class="fa-solid fa-link" aria-hidden="true"></i>Integrations</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p class="group-description">Map clear user journeys and high-conversion interfaces that communicate value quickly.</p>
+                <span class="service-outcome">Conversion-Focused</span>
+                <div class="skill-tags">
+                    <span><i class="fa-brands fa-figma" aria-hidden="true"></i>Figma</span><span><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i>UI Flows</span><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Wireframing</span><span><i class="fa-solid fa-palette" aria-hidden="true"></i>Brand Direction</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                </div>
+                <h3>Mobile Development</h3>
+                <p class="group-description">Create app experiences that remain intuitive across iOS and Android user environments.</p>
+                <span class="service-outcome">Mobile-First</span>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>Flutter</span><span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Swift</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iOS</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                </div>
+                <h3>Project Systems</h3>
+                <p class="group-description">Build complete project systems from first user action to reporting and operations.</p>
+                <span class="service-outcome">End-to-End Systems</span>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Booking Systems</span><span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Study Platforms</span><span><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboards</span><span><i class="fa-solid fa-lock" aria-hidden="true"></i>Secure Portals</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                </div>
+                <h3>Performance & Delivery</h3>
+                <p class="group-description">Optimize speed, SEO, and deployment quality so products are ready for real users.</p>
+                <span class="service-outcome">Production-Ready Delivery</span>
+                <div class="skill-tags">
+                    <span><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>SEO</span><span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Performance</span><span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>Deployment</span><span><i class="fa-solid fa-sliders" aria-hidden="true"></i>Optimization</span>
+                </div>
+            </div>
+        </div>
+        <div class="services-cta-wrap">
+            <a href="#" onclick="openHireModal(); return false;" class="btn-primary">Discuss Your Project</a>
+        </div>
+    </div>
+</section>
+
+<div id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Let's Work Together</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-sub">I usually reply within 24 hours. Share a few details and I'll map out next steps.</p>
+        </div>
+        <div class="contact-body">
+            <form class="contact-form" action="https://formspree.io/f/mqedeqwv" method="POST">
+                <div class="contact-form-grid">
+                    <div class="form-group">
+                        <label for="pj-contact-name">Name</label>
+                        <input id="pj-contact-name" type="text" name="Name" placeholder="e.g. Kwame Mensah" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pj-contact-email">Email</label>
+                        <input id="pj-contact-email" type="email" name="email" placeholder="e.g. name@company.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pj-contact-project">Project Type</label>
+                    <select id="pj-contact-project" name="Project Type" required>
+                        <option value="" selected disabled>Select project type</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="Business Website">Business Website</option>
+                        <option value="Platform / Web App">Platform / Web App</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pj-contact-message">Project Details</label>
+                    <textarea id="pj-contact-message" name="Message" rows="5" placeholder="Timeline, goals, budget — whatever helps me understand the scope." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary contact-submit">Send Message</button>
+                <p class="contact-privacy">Your details stay private. Prefer WhatsApp? <a href="https://wa.me/233203581172" target="_blank" rel="noopener noreferrer">Message me directly</a>.</p>
+            </form>
+            <aside class="contact-info">
+                <div class="contact-info-item">
+                    <span class="contact-info-label">Email</span>
+                    <a href="mailto:attastudy7@gmail.com" class="contact-info-value">attastudy7@gmail.com</a>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-label">Phone</span>
+                    <a href="tel:+233203581172" class="contact-info-value">+233 203 581 172</a>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-label">Resume</span>
+                    <a href="./CV/CV.pdf" class="contact-info-value contact-info-cv">Download CV <i class="fa-regular fa-arrow-down-to-line"></i></a>
+                </div>
+                <div class="contact-info-social">
+                    <span class="contact-info-label">Social</span>
+                    <div class="contact-social-strip">
+                        <a href="https://wa.me/233203581172" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/kwabena-twum-1302783b0/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B1n0DhYPpTyKX7RireLVXBg%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" aria-label="Fiverr">
+                            <span class="fiverr-svg-logo" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#1DBF73"/><text x="16" y="25" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="white">f</text></svg>
+                            </span>
+                        </a>
+                        <a href="https://www.upwork.com/freelancers/~01292706357f37294b?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i class="fa-brands fa-upwork"></i></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HIRE MODAL ===== -->
+<div class="hire-overlay" id="hireOverlay" onclick="closeHireModal(event)">
+    <div class="hire-modal" id="hireModal">
+        <button class="hire-modal-close" onclick="closeHireModal()" aria-label="Close modal">&times;</button>
+        <h3>Let's Work Together</h3>
+        <p class="hire-modal-sub">Pick your platform and I'll get back to you quickly.</p>
+        <div class="hire-options">
+            <a href="https://wa.me/233542460085" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="hire-option-label">WhatsApp</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-fiverr"></i>
+                <span class="hire-option-label">Fiverr</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01292706357f37294b" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-upwork"></i>
+                <span class="hire-option-label">Upwork</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.linkedin.com/in/twumkwabena" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span class="hire-option-label">LinkedIn</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Twum Kwabena. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

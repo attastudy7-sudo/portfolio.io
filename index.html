@@ -28,7 +28,7 @@
                     <li><a href="#experience" onclick="closeNav()">Projects</a></li>
           <li><a href="#services" onclick="closeNav()">Services</a></li>
           <li><a href="#contact" onclick="closeNav()">Contact</a></li>
-                    <li class="nav-mobile-cta" role="none"><a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" onclick="closeNav()" class="nav-cta-link">Hire Me ↗</a></li>
+                    <li class="nav-mobile-cta" role="none"><a href="#" onclick="openHireModal(); return false;" class="nav-cta-link">Hire Me</a></li>
         </ul>
     </nav>
     <div class="hero-container">
@@ -39,7 +39,7 @@
             </h1>
             <p class="hero-subtitle">Full Stack Developer & Designer </p>
             <div class="typing-wrapper">
-                <p class="typing-text">I create <span></span><span class="typing-cursor" aria-hidden="true"></span></p>
+                <p class="typing-text"><span class="typing-prefix">I create&nbsp;</span><span class="typing-typed"></span><span class="typing-cursor" aria-hidden="true"></span></p>
             </div>
             <div class="cta-buttons">
                 <a href="#experience" class="btn-primary">View My Work</a>
@@ -51,9 +51,6 @@
             <img src="./Images/M3.png" alt="Twum Kwabena">
         </div>    
     </div>
-    <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
-        <i class="fa-solid fa-angles-down" aria-hidden="true"></i>
-    </a>
 </div>
 
 <!-- -----About--------- -->
@@ -114,7 +111,10 @@
                 </div>
                 <div class="experience-body">
                     <h3>SESA - Student's Mental Assessment Tool</h3>
-                    <p>SESA centralises student wellbeing data into guided assessments and role-specific dashboards so staff can spot risks, prioritise cases, and track interventions. I implemented compact, accessible UI components, secure data flows, cohort filters, risk scoring, and an action-tracking timeline, plus exportable reports and admin controls. The interface is optimised for low-bandwidth school networks and keyboard accessibility, reducing friction for non-technical users while supporting clear, auditable follow-up workflows.</p>
+                    <p>Centralises student wellbeing data into guided assessments and role-specific dashboards for risk tracking and intervention workflows.</p>
+                    <div class="experience-stack">
+                        <span>Flask</span><span>PostgreSQL</span><span>JavaScript</span><span>PDF Export</span>
+                    </div>
                     <div class="experience-meta">
                         <span class="experience-duration">10-12 weeks</span>
                         <a href="https://fopaconsult.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
@@ -124,9 +124,9 @@
 
             <article class="experience-item">
                 <div class="experience-media">
-                    <img class="experience-img" src="Images/WEB SCRAPING .jpeg" alt="Motown.AI platform preview">
+                    <img class="experience-img" src="Images/WEB SCRAPING .jpeg" alt="Motwon AI platform preview">
                     <div class="experience-overlay">
-                        <h4>Motown.AI — AI Study Platform</h4>
+                        <h4>Motwon AI — AI Study Platform</h4>
                         <a href="https://motownai.com" class="experience-overlay-link" target="_blank" rel="noopener noreferrer">
                             Visit
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -134,8 +134,11 @@
                     </div>
                 </div>
                 <div class="experience-body">
-                    <h3>Motown.AI — AI Study Platform</h3>
-                    <p>Motown.AI turns lecture slides and PDFs into personalised study packs — flashcards, quizzes, fill-in exercises, AI notes, and a podcast — in minutes. Built for university students in Ghana (KNUST, UG, UCC), the platform features a dark-mode study room, spaced repetition progress tracking, quota-gated tiers, Paystack subscription payments, and a community Discover feed where users share generated packs. Engineered with Flask, Supabase Postgres, Cloudinary, and a multi-provider AI pipeline (Gemini + OpenRouter).</p>
+                    <h3>Motwon AI — AI Study Platform</h3>
+                    <p>Turns lecture slides and PDFs into personalised study packs — flashcards, quizzes, AI notes, and a podcast — with spaced repetition and subscription tiers.</p>
+                    <div class="experience-stack">
+                        <span>Flask</span><span>Supabase</span><span>Gemini AI</span><span>Paystack</span><span>Cloudinary</span>
+                    </div>
                     <div class="experience-meta">
                         <span class="experience-duration">Ongoing</span>
                         <a href="https://motownai.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
@@ -156,7 +159,10 @@
                 </div>
                 <div class="experience-body">
                     <h3>Booking Website for Henna Art</h3>
-                    <p>This mobile-first booking site converts social interest into bookings through clear service cards, pricing cues, and a streamlined inquiry flow. I optimised image delivery, added accessible forms with inline validation, and prioritised trust signals such as galleries and targeted testimonials. Click-to-call and WhatsApp integrations simplify contact, while lightweight analytics provide actionable insights on which services convert best for the owner.</p>
+                    <p>Mobile-first booking site with service cards, pricing cues, WhatsApp integration, and a streamlined inquiry flow to convert social interest into bookings.</p>
+                    <div class="experience-stack">
+                        <span>HTML/CSS</span><span>JavaScript</span><span>WhatsApp API</span>
+                    </div>
                     <div class="experience-meta">
                         <span class="experience-duration">4-6 weeks</span>
                         <a href="https://henna-site.onrender.com" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
@@ -177,7 +183,10 @@
                 </div>
                 <div class="experience-body">
                     <h3>CEPECOM - Community Empowerment Portal</h3>
-                    <p>CEPECOM aggregates programs, events, and resources into a responsive portal with searchable listings and clear sign-up/contact paths. For the showcase I prepared a frontend snapshot and documentation emphasising discoverability, accessible typography, and low-bandwidth performance. The layout highlights events and CTAs so volunteers and beneficiaries can find opportunities quickly, while content workflows make updates manageable for non-technical maintainers.</p>
+                    <p>Aggregates community programs, events, and resources into a responsive portal with searchable listings and accessible, low-bandwidth performance.</p>
+                    <div class="experience-stack">
+                        <span>Flask</span><span>Neon PostgreSQL</span><span>Vercel</span><span>HTML/CSS</span>
+                    </div>
                     <div class="experience-meta">
                         <span class="experience-duration">1-2 weeks</span>
                         <a href="https://cepecomgh.org" class="experience-live-link btn-secondary" target="_blank" rel="noopener noreferrer">See Live Site</a>
@@ -207,7 +216,7 @@
                 <p class="group-description">Build responsive, fast-loading interfaces that stay clean across desktop and mobile touchpoints.</p>
                 <span class="service-outcome">Fast UI</span>
                 <div class="skill-tags">
-                    <span><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span><span><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fa-brands fa-react" aria-hidden="true"></i>React</span>
+                    <span><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span><span><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fa-brands fa-react" aria-hidden="true"></i>React</span><span><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>AI Interfaces</span>
                 </div>
             </div>
             <div class="service-card">
@@ -218,7 +227,7 @@
                 <p class="group-description">Design secure backend workflows, robust integrations, and dependable data operations.</p>
                 <span class="service-outcome">Secure APIs</span>
                 <div class="skill-tags">
-                    <span><i class="fa-brands fa-python" aria-hidden="true"></i>Python</span><span><i class="fa-solid fa-plug" aria-hidden="true"></i>APIs</span><span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Authentication</span><span><i class="fa-solid fa-link" aria-hidden="true"></i>Integrations</span>
+                    <span><i class="fa-brands fa-python" aria-hidden="true"></i>Python</span><span><i class="fa-solid fa-plug" aria-hidden="true"></i>APIs</span><span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Authentication</span><span><i class="fa-solid fa-link" aria-hidden="true"></i>Integrations</span><span><i class="fa-solid fa-brain" aria-hidden="true"></i>LLM Integration</span>
                 </div>
             </div>
             <div class="service-card">
@@ -229,7 +238,7 @@
                 <p class="group-description">Map clear user journeys and high-conversion interfaces that communicate value quickly.</p>
                 <span class="service-outcome">Conversion-Focused</span>
                 <div class="skill-tags">
-                    <span><i class="fa-brands fa-figma" aria-hidden="true"></i>Figma</span><span><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i>UI Flows</span><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Wireframing</span><span><i class="fa-solid fa-palette" aria-hidden="true"></i>Brand Direction</span>
+                    <span><i class="fa-brands fa-figma" aria-hidden="true"></i>Figma</span><span><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i>UI Flows</span><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Wireframing</span><span><i class="fa-solid fa-palette" aria-hidden="true"></i>Brand Direction</span><span><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>AI Prototyping</span>
                 </div>
             </div>
             <div class="service-card">
@@ -240,7 +249,7 @@
                 <p class="group-description">Create app experiences that remain intuitive across iOS and Android user environments.</p>
                 <span class="service-outcome">Mobile-First</span>
                 <div class="skill-tags">
-                    <span><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>Flutter</span><span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Swift</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iOS</span>
+                    <span><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>Flutter</span><span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Swift</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iOS</span><span><i class="fa-solid fa-microchip" aria-hidden="true"></i>AI Features</span>
                 </div>
             </div>
             <div class="service-card">
@@ -251,7 +260,7 @@
                 <p class="group-description">Build complete project systems from first user action to reporting and operations.</p>
                 <span class="service-outcome">End-to-End Systems</span>
                 <div class="skill-tags">
-                    <span><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Booking Systems</span><span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Study Platforms</span><span><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboards</span><span><i class="fa-solid fa-lock" aria-hidden="true"></i>Secure Portals</span>
+                    <span><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Booking Systems</span><span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Study Platforms</span><span><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboards</span><span><i class="fa-solid fa-lock" aria-hidden="true"></i>Secure Portals</span><span><i class="fa-solid fa-robot" aria-hidden="true"></i>AI Workflows</span>
                 </div>
             </div>
             <div class="service-card">
@@ -262,12 +271,12 @@
                 <p class="group-description">Optimize speed, SEO, and deployment quality so products are ready for real users.</p>
                 <span class="service-outcome">Production-Ready Delivery</span>
                 <div class="skill-tags">
-                    <span><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>SEO</span><span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Performance</span><span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>Deployment</span><span><i class="fa-solid fa-sliders" aria-hidden="true"></i>Optimization</span>
+                    <span><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>SEO</span><span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Performance</span><span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>Deployment</span><span><i class="fa-solid fa-sliders" aria-hidden="true"></i>Optimization</span><span><i class="fa-solid fa-brain" aria-hidden="true"></i>AI Testing</span>
                 </div>
             </div>
         </div>
         <div class="services-cta-wrap">
-            <a href="#contact" class="btn-primary">Discuss Your Project</a>
+            <a href="#" onclick="openHireModal(); return false;" class="btn-primary">Discuss Your Project</a>
         </div>
     </div>
 </div>
@@ -282,6 +291,38 @@
             <h2 class="section-title">Get In Touch</h2>
         </div>
         <div class="contact-wrapper">
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/mqedeqwv" method="POST">
+                    <p class="form-intro">I usually reply within 24 hours. Share a few details and I will get back with next steps.</p>
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" type="text" name="Name" placeholder="e.g. Kwame Mensah" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" type="email" name="email" placeholder="e.g. name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-project">Project Type</label>
+                        <select id="contact-project" name="Project Type" required>
+                            <option value="" selected disabled>Select project type</option>
+                            <option value="Landing Page">Landing Page</option>
+                            <option value="Business Website">Business Website</option>
+                            <option value="Platform / Web App">Platform / Web App</option>
+                            <option value="UI/UX Design">UI/UX Design</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Project Details</label>
+                        <textarea id="contact-message" name="Message" rows="6" placeholder="Tell me what you want to build, timeline, and goals." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit">Send Message</button>
+                    <p class="form-privacy">Your details stay private and are only used to respond to your inquiry.</p>
+                    <p class="form-alt-contact">Prefer WhatsApp? <a href="https://wa.me/233203581172" target="_blank" rel="noopener noreferrer">Message me directly</a>.</p>
+                    <p class="form-status" aria-live="polite"></p>
+                </form>
+            </div>
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
@@ -324,38 +365,37 @@
                     </a>
                 </div>
             </div>
-            <div class="contact-form-wrapper">
-                <form action="https://formspree.io/f/mqedeqwv" method="POST">
-                    <p class="form-intro">I usually reply within 24 hours. Share a few details and I will get back with next steps.</p>
-                    <div class="form-group">
-                        <label for="contact-name">Name</label>
-                        <input id="contact-name" type="text" name="Name" placeholder="e.g. Kwame Mensah" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-email">Email</label>
-                        <input id="contact-email" type="email" name="email" placeholder="e.g. name@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-project">Project Type</label>
-                        <select id="contact-project" name="Project Type" required>
-                            <option value="" selected disabled>Select project type</option>
-                            <option value="Landing Page">Landing Page</option>
-                            <option value="Business Website">Business Website</option>
-                            <option value="Platform / Web App">Platform / Web App</option>
-                            <option value="UI/UX Design">UI/UX Design</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message">Project Details</label>
-                        <textarea id="contact-message" name="Message" rows="6" placeholder="Tell me what you want to build, timeline, and goals." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary btn-submit">Send Message</button>
-                    <p class="form-privacy">Your details stay private and are only used to respond to your inquiry.</p>
-                    <p class="form-alt-contact">Prefer WhatsApp? <a href="https://wa.me/233203581172" target="_blank" rel="noopener noreferrer">Message me directly</a>.</p>
-                    <p class="form-status" aria-live="polite"></p>
-                </form>
-            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HIRE MODAL ===== -->
+<div class="hire-overlay" id="hireOverlay" onclick="closeHireModal(event)">
+    <div class="hire-modal" id="hireModal">
+        <button class="hire-modal-close" onclick="closeHireModal()" aria-label="Close modal">&times;</button>
+        <h3>Let's Work Together</h3>
+        <p class="hire-modal-sub">Pick your platform and I'll get back to you quickly.</p>
+        <div class="hire-options">
+            <a href="https://wa.me/233542460085" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="hire-option-label">WhatsApp</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.fiverr.com/s/bdArk6q" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-fiverr"></i>
+                <span class="hire-option-label">Fiverr</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01292706357f37294b" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-upwork"></i>
+                <span class="hire-option-label">Upwork</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
+            <a href="https://www.linkedin.com/in/twumkwabena" target="_blank" rel="noopener noreferrer" class="hire-option" onclick="closeHireModal()">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span class="hire-option-label">LinkedIn</span>
+                <span class="hire-option-arrow">&rarr;</span>
+            </a>
         </div>
     </div>
 </div>

@@ -1,3 +1,35 @@
+// ===== HIRE MODAL =====
+function openHireModal() {
+    const overlay = document.getElementById('hireOverlay');
+    if (overlay) {
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+    closeNav();
+}
+
+function closeHireModal(event) {
+    // Close if clicked on overlay (backdrop) or called directly
+    if (event && event.target !== document.getElementById('hireOverlay') && event.target !== event.currentTarget) {
+        return;
+    }
+    const overlay = document.getElementById('hireOverlay');
+    if (overlay) {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+}
+
+// ESC key closes modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('hireOverlay');
+        if (overlay && overlay.classList.contains('is-open')) {
+            closeHireModal();
+        }
+    }
+});
+
 // ===== MOBILE NAVIGATION =====
 function toggleNav() {
     const menu = document.getElementById('menu');
@@ -173,7 +205,7 @@ function setupHeroAnimation() {
 
 // ===== TYPING ANIMATION =====
 function setupTypingAnimation() {
-    const el = document.querySelector('.typing-text span');
+    const el = document.querySelector('.typing-typed');
     if (!el || el.dataset.typed === 'true') return;
     el.dataset.typed = 'true';
 
@@ -229,6 +261,7 @@ function initPortfolio() {
     window.portfolioInitialized = true;
 
     try { setupScrollReveals(); } catch (e) { console.error('Scroll reveal init error:', e); }
+    try { setupMobileNavScroll(); } catch (e) { console.error('Mobile nav scroll init error:', e); }
     try { setupHeroAnimation(); } catch (e) { console.error('Hero animation init error:', e); }
     try { setupTypingAnimation(); } catch (e) { console.error('Typing animation init error:', e); }
     try { updateActiveNavLink(); } catch (e) { console.error('Active nav link init error:', e); }
@@ -264,6 +297,23 @@ if (document.readyState === 'loading') {
     initPortfolio();
 }
 
+
+// ===== MOBILE NAV SCROLL BEHAVIOR =====
+function setupMobileNavScroll() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    function toggleNavShadow() {
+        if (window.scrollY > 10) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    }
+
+    toggleNavShadow();
+    window.addEventListener('scroll', toggleNavShadow, { passive: true });
+}
 
 // ===== ACTIVE NAVIGATION ON SCROLL =====
 function updateActiveNavLink() {
